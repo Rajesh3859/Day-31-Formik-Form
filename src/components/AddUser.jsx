@@ -27,13 +27,26 @@ function Adduser() {
       Books: Yup.object({
         Title: Yup.string().required('Title is Required').min(4, 'Title can not be shorter than 4 letters'),
         Author: Yup.string().required('Author Name is Required'),
-        ISBN_Number: Yup.string().required('ISBN Number is required').matches(/^\d{6}$/, 'Enter a valid ISBN Number'),
-        Publication_Date: Yup.string().required('Date is Required'),
+        ISBN_Number:Yup.string()
+        .required('ISBN is required')
+        .matches(/^(\d{3}-?\d{1,5}-?\d{1,7}-?\d{1,7}-?\d{1}|\d{13})$/, 'Invalid ISBN format'),
+        Publication_Date: Yup.date().required('Publication Date is required').nullable()
+        .transform((originalValue, originalObject) => {
+        const parsedDate = new Date(originalValue);
+        return isNaN(parsedDate) ? null : parsedDate;
+      })
+      .test('valid-date', 'Invalid date', (value) => value !== null),
       }),
       Author: Yup.object({
         Authors_Name: Yup.string().required("Authors name is required"),
-        Birth_Date: Yup.string().required('BirthDate is Required'),
-        Biography: Yup.string().required('Biography is required'),
+        Birth_Date:Yup.date().required('Date of birth is required').nullable()
+        .transform((originalValue, originalObject) => {
+        const parsedDate = new Date(originalValue);
+        return isNaN(parsedDate) ? null : parsedDate;
+      })
+      .test('valid-date', 'Invalid date', (value) => value !== null),
+       
+      Biography: Yup.date().required('Date is Required').min('10-01-2024', 'select greater date')
       }),
     }),
     onSubmit: async (values) => {
@@ -100,14 +113,16 @@ function Adduser() {
               ) : null}<br/>
 
               <Form.Control
-                type="text"
-                placeholder="Publication_Date"
+                type="date"
+                placeholder="dd/mm/yyyy"
                 id="Publication_Date"
                 name="Books.Publication_Date" 
                 onChange={formik.handleChange}
                 value={formik.values.Books.Publication_Date}
-                onBlur={formik.handleBlur}
-              />
+                onBlur={formik.handleBlur}/>
+                {formik.touched.publicationDate && formik.errors.publicationDate ? (<div style={{color:"red"}}>
+                {formik.errors.publicationDate}</div>) : null}
+              
               {formik.touched.Books?.Publication_Date && formik.errors.Books?.Publication_Date ? (
                 <div style={{ color: "red" }}>{formik.errors.Books.Publication_Date}</div>
               ) : null}
