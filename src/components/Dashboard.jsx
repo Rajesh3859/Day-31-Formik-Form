@@ -8,11 +8,11 @@ import AxiosService from '../utils/ApiService';
 function Dashboard() {
   const data = [
     {
-      title: 'EARNINGS (MONTHLY)',
-      value: '$45,000',
-      color: 'primary',
-      icon: 'fa-calendar',
-      isProgress: false,
+      // title: 'EARNINGS (MONTHLY)',
+      // value: '$45,000',
+      // color: 'primary',
+      // icon: 'fa-calendar',
+      // isProgress: false,
     },
     {
       title: 'EARNINGS (ANNUAL)',
@@ -76,15 +76,15 @@ function Dashboard() {
         <div id="content">
           <div className="container-fluid">
             <div className="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
+              {/* <h1 className="h3 mb-0 text-gray-800">Dashboard</h1> */}
             </div>
-            <div className="row">
+            {/* <div className="row">
               {data.map((e, i) => {
                 return <Card cardData={e} key={i} />;
               })}
-            </div>
+            </div> */}
             <div className="row">
-            <h2 style={{fontFamily:"cursive",fontWeight:"bolder",color:"black",margin:"20px"}}>Books Details</h2>
+            <h2 style={{fontFamily:"",fontWeight:"bolder",color:"black",margin:"20px"}}>Books Details</h2>
             <Table striped bordered hover>
   <thead>
     <tr>
@@ -116,7 +116,7 @@ function Dashboard() {
     ))}
   </tbody>
 </Table>
-<h2 style={{ fontFamily: "cursive", fontWeight: "bolder", color: "black", margin: "20px", whiteSpace: "nowrap" }}>Author's Details</h2>
+<h2 style={{ fontFamily: "", fontWeight: "bolder", color: "black", margin: "20px", whiteSpace: "nowrap" }}>Author's Details</h2>
 <Table striped bordered hover>
   <thead>
     <tr>

@@ -46,7 +46,7 @@ function Adduser() {
       })
       .test('valid-date', 'Invalid date', (value) => value !== null),
        
-      Biography: Yup.date().required('Date is Required').min('10-01-2024', 'select greater date')
+      Biography: Yup.string().required('Biography is required'),
       }),
     }),
     onSubmit: async (values) => {
@@ -114,7 +114,7 @@ function Adduser() {
 
               <Form.Control
                 type="date"
-                placeholder="dd/mm/yyyy"
+                placeholder="dd//mm//yyyy"
                 id="Publication_Date"
                 name="Books.Publication_Date" 
                 onChange={formik.handleChange}
@@ -144,8 +144,8 @@ function Adduser() {
               ) : null}<br/>
 
               <Form.Control
-                type="text"
-                placeholder="Birth_Date"
+                type="date"
+                placeholder="dd//mm//yyyy"
                 id="Birth_Date"
                 name="Author.Birth_Date" 
                 onChange={formik.handleChange}
@@ -156,7 +156,7 @@ function Adduser() {
                 <div style={{ color: "red" }}>{formik.errors.Author.Birth_Date}</div>
               ) : null}<br/>
 
-              <Form.Control
+<Form.Control
                 type="text"
                 placeholder="Biography"
                 id="Biography"
@@ -168,6 +168,7 @@ function Adduser() {
               {formik.touched.Author?.Biography && formik.errors.Author?.Biography ? (
                 <div style={{ color: "red" }}>{formik.errors.Author.Biography}</div>
               ) : null}
+            
             </Form.Group>
             <div style={{ display: "flex", justifyContent: "center" }}>
   <Button  variant="primary" type="submit">

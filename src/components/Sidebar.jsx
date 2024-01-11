@@ -9,7 +9,7 @@ function Sidebar() {
           <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-laugh-wink"></i>
           </div>
-          <div className="sidebar-brand-text mx-3">Book Library<sup>2</sup></div>
+          <div className="sidebar-brand-text mx-3">Book Library</div>
         </a>
         <hr className="sidebar-divider my-0" />
 
