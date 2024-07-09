@@ -84,68 +84,121 @@ function Dashboard() {
               })}
             </div> */}
             <div className="row">
-            <h2 style={{fontFamily:"",fontWeight:"bolder",color:"black",margin:"20px"}}>Books Details</h2>
-            <Table striped bordered hover>
-  <thead>
-    <tr>
-      <th>S.No</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>ISBN Number</th>
-      <th>Publication Date</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {users.map((user,i) => (
-      <tr key={user.id}>
-        <td>{i+1}</td>
-        <td>{user.Books.Title}</td>
-        <td>{user.Books.Author}</td>
-        <td>{user.Books.ISBN_Number}</td>
-        <td>{user.Books.Publication_Date}</td>
-        <td>
-          <Button className="btn btn-primary" onClick={() => navigate(`/edit-user/${user.id}`)}>
-          <i class="fa-solid fa-pen-to-square"></i>
-          </Button>{' '}
-          <Button className="btn btn-danger" onClick={() => handleDelete(user.id)}>
-          <i class="fa-solid fa-trash"></i>
-          </Button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</Table>
-<h2 style={{ fontFamily: "", fontWeight: "bolder", color: "black", margin: "20px", whiteSpace: "nowrap" }}>Author's Details</h2>
-<Table striped bordered hover>
-  <thead>
-    <tr>
-      <th style={{width:"50px"}}>S.No</th>
-      <th>Authors Name</th>
-      <th>BirthDate</th>
-      <th>Biography</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {users.map((user,i) => (
-      <tr key={user.id}>
-        <td>{i+1}</td>
-        <td>{user.Author.Authors_Name}</td>
-        <td>{user.Author.Birth_Date}</td>
-        <td>{user.Author.Biography}</td>
-        <td>
-          <Button variant="primary" onClick={() => navigate(`/edit-user/${user.id}`)}>
-          <i class="fa-solid fa-pen-to-square"></i>
-          </Button>{' '}
-          <Button variant="danger" onClick={() => handleDelete(user.id)}>
-          <i class="fa-solid fa-trash"></i>
-          </Button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</Table>
+              <h2
+                style={{
+                  fontFamily: "timesnewromen",
+                  fontWeight: "bolder",
+                  color: "black",
+                  margin: "20px",
+                }}
+              >
+                Books Details
+              </h2>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      S.No
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Title
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Author
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      ISBN Number
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Publication Date
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map((user, i) => (
+                    <tr key={user.id}>
+                      <td>{i + 1}</td>
+                      <td>{user.Books.Title}</td>
+                      <td>{user.Books.Author}</td>
+                      <td>{user.Books.ISBN_Number}</td>
+                      <td>{user.Books.Publication_Date}</td>
+                      <td>
+                        <Button
+                          className="btn btn-primary"
+                          onClick={() => navigate(`/edit-user/${user.id}`)}
+                        >
+                          <i class="fa-solid fa-pen-to-square"></i>
+                        </Button>{" "}
+                        <Button
+                          className="btn btn-danger"
+                          onClick={() => handleDelete(user.id)}
+                        >
+                          <i class="fa-solid fa-trash"></i>
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <h2
+                style={{
+                  fontFamily: "timenewromen",
+                  fontWeight: "bolder",
+                  color: "black",
+                  margin: "20px",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Author's Details
+              </h2>
+              <Table striped bordered hover>
+                <thead className="danger">
+                  <tr>
+                    <th style={{ fontFamily: "timenewromen", width: "50px"}}>
+                      S.No
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Authors Name
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      BirthDate
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Biography
+                    </th>
+                    <th style={{ fontFamily: "timenewromen", width: "50px" }}>
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map((user, i) => (
+                    <tr key={user.id}>
+                      <td>{i + 1}</td>
+                      <td>{user.Author.Authors_Name}</td>
+                      <td>{user.Author.Birth_Date}</td>
+                      <td>{user.Author.Biography}</td>
+                      <td>
+                        <Button
+                          variant="primary"
+                          onClick={() => navigate(`/edit-user/${user.id}`)}
+                        >
+                          <i class="fa-solid fa-pen-to-square"></i>
+                        </Button>{" "}
+                        <Button
+                          variant="danger"
+                          onClick={() => handleDelete(user.id)}
+                        >
+                          <i class="fa-solid fa-trash"></i>
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
             </div>
           </div>
         </div>

@@ -93,7 +93,7 @@ function Edituser() {
           </div>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Group className="mb-3">
-            <Form.Label style={{ color: "black", fontFamily: "cursive", fontSize: "22px", fontWeight: "bold", display: "flex", alignItems: "center", justifyContent:"center"}}>Books 📚📕</Form.Label>
+            <Form.Label style={{ color: "black", fontFamily: "timesnewromen", fontSize: "22px", fontWeight: "bold", display: "flex", alignItems: "center", justifyContent:"center"}}>Books</Form.Label>
             <Form.Control style={{textAlign:"center"}}
                 type="text"
                 placeholder="Title"
